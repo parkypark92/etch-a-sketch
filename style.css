@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    height: 800px;
+    width: 800px;
+    background-color:aliceblue;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.initialColor {
+    background-color: black;
+}
+
+.hovering {
+    background-color: aqua;
+}
+
+.afterHover {
+    background: black;
+    transition: 2s;
+}
