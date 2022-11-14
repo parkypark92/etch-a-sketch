@@ -4,17 +4,25 @@
 }
 
 body {
-    height: 100vh;
+    height: calc(100 - 70)vh;
+    background: rgb(255, 250, 221);
+}
+
+.controls {
+    width: 680px;
+    margin: 0 auto;
+    padding: 40px 0px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
 }
 
 .grid-container {
-    height: 800px;
-    width: 800px;
+    height: 600px;
+    width: 600px;
     background-color:aliceblue;
-    border: 2px solid black;
+    border: 40px solid rgb(212, 73, 73);
+    border-radius: 20px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 
