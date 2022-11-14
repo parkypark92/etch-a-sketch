@@ -1,16 +1,22 @@
 const container = document.querySelector('.grid-container');
 const containerHeight = 600;
-const fade = document.querySelector('#fade');
-fade.addEventListener('change', toggleFade)
+let currentPixelNum;
 const button = document.querySelector('button');
 button.addEventListener('click', () => {
     let num = prompt("Enter number of pixels");
     setPixels(num);
 });
+
+const fade = document.querySelector('#fade');
+fade.addEventListener('change', toggleFade);
+
+const clearAll = document.querySelector('.clear-all');
+clearAll.addEventListener('click', () => setPixels(currentPixelNum));
 setPixels(16);
 
 function setPixels(num) {
     removePixels();
+    currentPixelNum = num;
     let pixelSize = containerHeight / num;
     let numberOfPixels = num * num;
 
@@ -24,9 +30,9 @@ for(let i = 1; i <= numberOfPixels; i++)
     i.addEventListener('mouseover', () => {
         i.classList.remove('afterHover');
         i.classList.add('hovering');
-    });
-    
+    }); 
 }
+toggleFade();
 }
 
 
