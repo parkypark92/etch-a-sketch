@@ -19,7 +19,6 @@ body {
 .grid-container {
     height: 600px;
     width: 600px;
-    background-color:aliceblue;
     border: 40px solid rgb(212, 73, 73);
     border-radius: 20px;
     margin: 0 auto;
@@ -28,12 +27,17 @@ body {
 
 }
 
+.square {
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.171);
+}
+
 .initialColor {
-    background-color: black;
+    background-color: rgb(36, 36, 36);
 }
 
 .hovering {
-    background-color: aqua;
+    background-color: rgb(0, 197, 197);
 }
 
 .afterHover {

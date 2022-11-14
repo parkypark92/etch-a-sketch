@@ -1,6 +1,7 @@
 const container = document.querySelector('.grid-container');
 const containerHeight = 600;
 let currentPixelNum;
+
 const button = document.querySelector('button');
 button.addEventListener('click', () => {
     let num = prompt("Enter number of pixels");
@@ -12,6 +13,7 @@ fade.addEventListener('change', toggleFade);
 
 const clearAll = document.querySelector('.clear-all');
 clearAll.addEventListener('click', () => setPixels(currentPixelNum));
+
 setPixels(16);
 
 function setPixels(num) {
