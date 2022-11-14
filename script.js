@@ -14,6 +14,10 @@ fade.addEventListener('change', toggleFade);
 const clearAll = document.querySelector('.clear-all');
 clearAll.addEventListener('click', () => setPixels(currentPixelNum));
 
+let mouseDown = false;
+document.body.onmousedown = () => mouseDown = true;
+document.body.onmouseup = () => mouseDown = false;
+
 setPixels(16);
 
 function setPixels(num) {
