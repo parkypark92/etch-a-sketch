@@ -29,12 +29,10 @@ for(let i = 1; i <= numberOfPixels; i++)
     i.classList.add('square');
     container.appendChild(i);
     i.setAttribute('style', `height: ${pixelSize}px; width: ${pixelSize}px;`);
-    i.addEventListener('mouseover', () => {
-        i.classList.remove('afterHover');
-        i.classList.add('hovering');
-    }); 
+    i.addEventListener('mouseover', draw);
+    i.addEventListener('mousedown', draw); 
 }
-toggleFade();
+// toggleFade();
 }
 
 
@@ -66,7 +64,20 @@ function toggleFade()
 }
 
 
+function draw(e) {
+    if(e.type == 'mouseover' && !mouseDown) return;
+    e.target.classList.add('hovering');
+}
 
+
+function stopDraw() {
+    let pixels = document.querySelectorAll('.square');
+    pixels.forEach(pixel => {
+        pixel.removeEventListener('mouseover', () => {
+        pixel.classList.add('hovering');
+        })
+    })
+}
 
 
 
