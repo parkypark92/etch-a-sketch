@@ -3,11 +3,11 @@ const containerHeight = 600;
 let currentPixelNum;
 
 const gridSize = document.querySelector('#grid-size');
-console.log(gridSize.value);
 gridSize.addEventListener('change', selectGridSize);
 
 const toggleGrid = document.querySelector('.toggleGrid');
 toggleGrid.addEventListener('click', gridToggle);
+let toggled = false;
 
 const clearAll = document.querySelector('.clear-all');
 clearAll.addEventListener('click', () => setPixels(currentPixelNum));
@@ -35,6 +35,7 @@ function setPixels(num) {
         i.setAttribute('style', `height: ${pixelSize}px; width: ${pixelSize}px;`);
         i.addEventListener('mouseover', draw);
         i.addEventListener('mousedown', draw); 
+        checkToggle(i);
     }
 }
 
@@ -68,9 +69,17 @@ function selectGridSize()
     }
 }
 
+
 function gridToggle()
 {
     let pixels = document.querySelectorAll('.square');
     pixels.forEach(pixel => pixel.classList.toggle('grid-lines'));
+    toggled = !toggled;
+    console.log(toggled);
 }
 
+function checkToggle(pixel) 
+{
+    if(toggled === false) return;
+    pixel.classList.add('grid-lines');
+}
