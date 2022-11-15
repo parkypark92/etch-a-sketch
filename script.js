@@ -1,5 +1,6 @@
 const container = document.querySelector('.grid-container');
 const containerHeight = 600;
+const defaultPixelSize = 48;
 let currentPixelNum;
 
 const gridSize = document.querySelector('#grid-size');
@@ -15,36 +16,6 @@ clearAll.addEventListener('click', () => setPixels(currentPixelNum));
 let mouseDown = false;
 document.body.onmousedown = () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
-
-const defaultPixelSize = 48;
-
-setPixels(defaultPixelSize);
-
-function setPixels(num) {
-    removePixels();
-    currentPixelNum = num;
-    let pixelSize = containerHeight / num;
-    let numberOfPixels = num * num;
-
-    for(let i = 1; i <= numberOfPixels; i++)
-    {
-        let i = document.createElement('div');
-        i.classList.add('initialColor');
-        i.classList.add('square');
-        container.appendChild(i);
-        i.setAttribute('style', `height: ${pixelSize}px; width: ${pixelSize}px;`);
-        i.addEventListener('mouseover', draw);
-        i.addEventListener('mousedown', draw); 
-        checkToggle(i);
-    }
-}
-
-
-function removePixels() 
-{
-    let pixels = document.querySelectorAll('.square');
-    pixels.forEach(pixel => pixel.remove());
-}
 
 
 function draw(e) {
@@ -70,16 +41,45 @@ function selectGridSize()
 }
 
 
+function setPixels(num) {
+    removePixels();
+    currentPixelNum = num;
+    let pixelSize = containerHeight / num;
+    let numberOfPixels = num * num;
+
+    for(let i = 1; i <= numberOfPixels; i++)
+    {
+        let i = document.createElement('div');
+        i.classList.add('initialColor');
+        i.classList.add('square');
+        container.appendChild(i);
+        i.setAttribute('style', `height: ${pixelSize}px; width: ${pixelSize}px;`);
+        i.addEventListener('mouseover', draw);
+        checkToggle(i);
+    }
+}
+
+
 function gridToggle()
 {
     let pixels = document.querySelectorAll('.square');
     pixels.forEach(pixel => pixel.classList.toggle('grid-lines'));
     toggled = !toggled;
-    console.log(toggled);
 }
+
 
 function checkToggle(pixel) 
 {
     if(toggled === false) return;
     pixel.classList.add('grid-lines');
 }
+
+
+function removePixels() 
+{
+    let pixels = document.querySelectorAll('.square');
+    pixels.forEach(pixel => pixel.remove());
+}
+
+
+setPixels(defaultPixelSize);
