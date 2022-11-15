@@ -27,7 +27,7 @@ body {
 
 }
 
-.square {
+.grid-lines {
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.171);
 }

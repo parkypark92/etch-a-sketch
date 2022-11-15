@@ -6,6 +6,9 @@ const gridSize = document.querySelector('#grid-size');
 console.log(gridSize.value);
 gridSize.addEventListener('change', selectGridSize);
 
+const toggleGrid = document.querySelector('.toggleGrid');
+toggleGrid.addEventListener('click', gridToggle);
+
 const clearAll = document.querySelector('.clear-all');
 clearAll.addEventListener('click', () => setPixels(currentPixelNum));
 
@@ -65,5 +68,9 @@ function selectGridSize()
     }
 }
 
-
+function gridToggle()
+{
+    let pixels = document.querySelectorAll('.square');
+    pixels.forEach(pixel => pixel.classList.toggle('grid-lines'));
+}
 
