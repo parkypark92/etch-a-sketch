@@ -8,8 +8,8 @@ button.addEventListener('click', () => {
     setPixels(num);
 });
 
-const fade = document.querySelector('#fade');
-fade.addEventListener('change', toggleFade);
+// const fade = document.querySelector('#fade');
+// fade.addEventListener('change', toggleFade);
 
 const clearAll = document.querySelector('.clear-all');
 clearAll.addEventListener('click', () => setPixels(currentPixelNum));
@@ -46,26 +46,26 @@ function removePixels()
     pixels.forEach(pixel => pixel.remove());
 }
 
-function toggleFade()
-{
-    let pixels = document.querySelectorAll('.square');
-    if(fade.value === 'fade')
-    {
-        pixels.forEach(pixel => {
-         pixel.addEventListener('mouseout', () => {
-            pixel.classList.remove('hovering');
-            pixel.classList.add('afterHover');   
-        })
-        });
-    } else{
-        pixels.forEach(pixel => {
-            pixel.addEventListener('mouseout', () => {
-               pixel.classList.remove('afterHover');
-               pixel.classList.add('hovering');   
-           })
-           });
-    }
-}
+// function toggleFade()
+// {
+//     let pixels = document.querySelectorAll('.square');
+//     if(fade.value === 'fade')
+//     {
+//         pixels.forEach(pixel => {
+//          pixel.addEventListener('mouseout', () => {
+//             pixel.classList.remove('hovering');
+//             pixel.classList.add('afterHover');   
+//         })
+//         });
+//     } else{
+//         pixels.forEach(pixel => {
+//             pixel.addEventListener('mouseout', () => {
+//                pixel.classList.remove('afterHover');
+//                pixel.classList.add('hovering');   
+//            })
+//            });
+//     }
+// }
 
 
 function draw(e) {
@@ -74,14 +74,7 @@ function draw(e) {
 }
 
 
-function stopDraw() {
-    let pixels = document.querySelectorAll('.square');
-    pixels.forEach(pixel => {
-        pixel.removeEventListener('mouseover', () => {
-        pixel.classList.add('hovering');
-        })
-    })
-}
+
 
 
 
