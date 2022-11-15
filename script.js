@@ -6,6 +6,12 @@ let currentPixelNum;
 const gridSize = document.querySelector('#grid-size');
 gridSize.addEventListener('change', selectGridSize);
 
+const rainbow = document.querySelector('.rainbow');
+let rainbowSet = false;
+rainbow.addEventListener('click', () => 
+rainbowSet = !rainbowSet);
+
+
 const toggleGrid = document.querySelector('.toggleGrid');
 toggleGrid.addEventListener('click', gridToggle);
 let toggled = false;
@@ -20,7 +26,12 @@ document.body.onmouseup = () => mouseDown = false;
 
 function draw(e) {
     if(e.type == 'mouseover' && !mouseDown) return;
-    e.target.classList.add('hovering');
+    if(rainbowSet === false)
+    {
+    e.target.style.background = "rgb(0, 197, 197)";
+    } else {
+        e.target.style.background = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    }
 }
 
 
@@ -79,6 +90,12 @@ function removePixels()
 {
     let pixels = document.querySelectorAll('.square');
     pixels.forEach(pixel => pixel.remove());
+}
+
+
+function randomNumber()
+{
+    return Math.floor(Math.random() * ((255 - 10) + 1)) + 10;
 }
 
 
