@@ -8,13 +8,12 @@ gridSize.addEventListener('change', selectGridSize);
 
 const rainbow = document.querySelector('.rainbow');
 let rainbowSet = false;
-rainbow.addEventListener('click', () => 
-rainbowSet = !rainbowSet);
+rainbow.addEventListener('click', applyRainbow);
 
 
 const toggleGrid = document.querySelector('.toggleGrid');
 toggleGrid.addEventListener('click', gridToggle);
-let toggled = false;
+let toggled = true;
 
 const clearAll = document.querySelector('.clear-all');
 clearAll.addEventListener('click', () => setPixels(currentPixelNum));
@@ -76,6 +75,13 @@ function gridToggle()
     let pixels = document.querySelectorAll('.square');
     pixels.forEach(pixel => pixel.classList.toggle('grid-lines'));
     toggled = !toggled;
+    if(toggled === false)
+    {
+        toggleGrid.style.color = 'rgba(0, 0, 0, 0.460)';
+    } else {
+        toggleGrid.style.color = 'rgba(0, 0, 0)';
+
+    }
 }
 
 
@@ -83,6 +89,18 @@ function checkToggle(pixel)
 {
     if(toggled === false) return;
     pixel.classList.add('grid-lines');
+}
+
+
+function applyRainbow() 
+{
+    rainbowSet = !rainbowSet
+    if(rainbowSet === true)
+    {
+        rainbow.classList.add('rainbow-color');
+    } else {
+        rainbow.classList.remove('rainbow-color');
+    }
 }
 
 
@@ -99,4 +117,8 @@ function randomNumber()
 }
 
 
-setPixels(defaultPixelSize);
+function initialize() {
+    setPixels(defaultPixelSize);
+    gridToggle();
+}
+initialize();
