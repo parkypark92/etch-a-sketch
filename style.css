@@ -11,7 +11,7 @@ body {
 .controls {
     width: 680px;
     margin: 0 auto;
-    padding: 40px 0px;
+    padding: 80px 0px 40px 0px;
     display: flex;
     justify-content: space-around;
 }
@@ -19,9 +19,10 @@ body {
 .grid-container {
     height: 600px;
     width: 600px;
-    border: 40px solid rgb(212, 73, 73);
+    border: 40px solid rgb(207, 74, 74);
     border-radius: 20px;
     margin: 0 auto;
+    box-shadow: 0px 0px 20px 1px rgb(70, 70, 70);
     display: flex;
     flex-wrap: wrap;
 
@@ -36,12 +37,7 @@ body {
     background-color: rgb(36, 36, 36);
 }
 
-.hovering {
-    background-color: rgb(0, 197, 197);
+.button {
+    width: 80px;
+    height: 23px;
 }
-
-.afterHover {
-    background: black;
-    transition: 2s;
-}
-
