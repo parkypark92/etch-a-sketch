@@ -6,12 +6,13 @@
 body {
     height: calc(100 - 70)vh;
     background: rgb(255, 250, 221);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .controls {
     width: 680px;
     margin: 0 auto;
-    padding: 80px 0px 40px 0px;
+    padding: 70px 0px 50px 0px;
     display: flex;
     justify-content: space-around;
 }
@@ -28,6 +29,15 @@ body {
 
 }
 
+#grid-size {
+    background-color: rgb(255, 250, 221);
+    border: 2px solid black;
+}
+
+#grid-size:hover {
+    background-color: rgb(243, 236, 193);
+}
+
 .grid-lines {
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.171);
@@ -38,6 +48,22 @@ body {
 }
 
 .button {
-    width: 80px;
+    width: 120px;
     height: 23px;
+    border: 2px solid black;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgb(92, 92, 92);
+    background-color: rgb(243, 236, 193);
+}
+
+.button:active {
+    box-shadow: inset 0px 0px 5px gray;
+    font-size: 0.99em;
 }
